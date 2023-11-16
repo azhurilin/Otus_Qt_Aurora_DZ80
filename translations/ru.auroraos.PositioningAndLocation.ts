@@ -10,6 +10,34 @@
     </message>
 </context>
 <context>
+    <name>MapPage</name>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="49"/>
+        <source>Coordinate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="69"/>
+        <source>Latitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="79"/>
+        <source>Longitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="89"/>
+        <source>Altitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="149"/>
+        <source>масштаб</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PositioningPage</name>
     <message>
         <location filename="../qml/pages/PositioningPage.qml" line="32"/>
