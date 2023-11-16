@@ -9,7 +9,10 @@ URL:        https://auroraos.ru
 Source0:    %{name}-%{version}.tar.bz2
 
 Requires:   sailfishsilica-qt5 >= 0.10.9
-Requires:  qt5-qtdeclarative-import-positioning
+Requires:   qt5-qtdeclarative-import-positioning
+Requires:   qt5-qtdeclarative-import-location
+Requires:   qt5-plugin-geoservices-webtiles
+
 # ToDo: add requires to use QtLocation with OSM plugin in QML
 # ToDo: add requires to use WebTiles
 BuildRequires:  pkgconfig(auroraapp)
