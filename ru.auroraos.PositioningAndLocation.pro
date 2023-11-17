@@ -48,6 +48,7 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
+    qml/assets/Footprints.qml \
     rpm/ru.auroraos.PositioningAndLocation.spec \
     AUTHORS.md \
     CODE_OF_CONDUCT.md \

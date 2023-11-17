@@ -17,22 +17,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/pages/MapPage.qml" line="59"/>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="60"/>
+        <source>%1 meters / second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/MapPage.qml" line="69"/>
         <source>Latitude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="79"/>
+        <location filename="../qml/pages/MapPage.qml" line="81"/>
         <source>Longitude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="89"/>
+        <location filename="../qml/pages/MapPage.qml" line="92"/>
         <source>Altitude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="149"/>
+        <location filename="../qml/pages/MapPage.qml" line="164"/>
         <source>масштаб</source>
         <translation type="unfinished"></translation>
     </message>

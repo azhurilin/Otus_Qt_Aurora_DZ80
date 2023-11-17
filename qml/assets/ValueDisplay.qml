@@ -12,6 +12,7 @@ Item {
     TextField {
         id: textField
         text: valid ? "%1".arg(value) : ""
+      //  font.pointSize: 24
         color: Theme.highlightColor
         placeholderColor: color
         readOnly: true

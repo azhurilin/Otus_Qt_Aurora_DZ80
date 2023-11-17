@@ -37,7 +37,7 @@ Page {
              id:  ttimestamp
              anchors.top:   parent.top
              anchors.right: parent.right
-             width: parent.width
+             //width: parent.width
              font.pointSize: 24
              text: positionSource.position.timestamp
           }
@@ -51,7 +51,7 @@ Page {
               valid: positionSource.position.coordinate.isValid
               width: parent.width
           }
-/*
+
           ValueDisplay {
               id:    vdspeed
               anchors.top: ttimestamp.bottom
@@ -61,7 +61,7 @@ Page {
               valid: positionSource.position.speedValid
               width: parent.width * 0.25
           }
-*/
+
           ValueDisplay {
               id:    vdlatitude
               anchors.top:  vdcoordinate.bottom
@@ -74,8 +74,10 @@ Page {
 
           ValueDisplay {
               id:    vdlongitude
-              anchors.top: vdcoordinate.bottom
-              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:   vdcoordinate.bottom
+              anchors.left:  vdlatitude.right
+              anchors.right: vdaltitude.left
+
               label: qsTr("Longitude")
               value: positionSource.position.coordinate.longitude.toFixed(6)
               valid: positionSource.position.longitudeValid
@@ -86,6 +88,7 @@ Page {
               id:    vdaltitude
               anchors.top: vdcoordinate.bottom
               anchors.right: parent.right
+
               label: qsTr("Altitude")
               value: positionSource.position.coordinate.altitude.toFixed(6)
               valid: positionSource.position.altitudeValid
@@ -127,8 +130,21 @@ Page {
              }
 
 
+             MapQuickItem {
+                 id: mifoot
 
-             Component.onCompleted: center = QtPositioning.coordinate(55.751244, 37.618423)
+
+             }
+
+             Component.onCompleted: {
+
+                 center = QtPositioning.coordinate(55.751244, 37.618423)
+                 map.addMapItem(mifoot)
+
+
+
+             }
+
           }
        }
 
