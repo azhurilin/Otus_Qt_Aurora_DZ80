@@ -40,7 +40,6 @@ import Sailfish.Silica 1.0
 
 ApplicationWindow {
     objectName: "applicationWindow"
-//    initialPage: Qt.resolvedUrl("pages/PositioningPage.qml")
     initialPage: Qt.resolvedUrl("pages/MapPage.qml")
 
     cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
