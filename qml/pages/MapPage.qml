@@ -5,24 +5,18 @@ import QtPositioning 5.3
 import QtLocation 5.0
 import "../assets"
 
+
 Page {
 //=====================*******==========================================*******=====================
     PositionSource {
-        id: positionSource
+        id: mapsource
         updateInterval: 1000
-//        nmeaSource: "../../nmea/path.nmea"
+
         nmeaSource: "/usr/share/ru.auroraos.PositioningAndLocation/nmea/path.nmea"
-      //  active: activeSwitch.checked
+
+
         active: true
     }
-
-
-
-
-
-
-
-
 
 
 //=====================*******==========================================*******=====================
@@ -37,9 +31,8 @@ Page {
              id:  ttimestamp
              anchors.top:   parent.top
              anchors.right: parent.right
-             //width: parent.width
              font.pointSize: 24
-             text: positionSource.position.timestamp
+             text: mapsource.position.timestamp
           }
 
           ValueDisplay {
@@ -47,8 +40,8 @@ Page {
               anchors.top: ttimestamp.bottom
               anchors.left: parent.left
               label: qsTr("Coordinate")
-              value: positionSource.position.coordinate
-              valid: positionSource.position.coordinate.isValid
+              value: mapsource.position.coordinate
+              valid: mapsource.position.coordinate.isValid
               width: parent.width
           }
 
@@ -57,8 +50,8 @@ Page {
               anchors.top: ttimestamp.bottom
               anchors.right: parent.right
               label: qsTr("Speed")
-              value: qsTr("%1 meters / second").arg(positionSource.position.speed)
-              valid: positionSource.position.speedValid
+              value: qsTr("%1 meters / second").arg(mapsource.position.speed)
+              valid: mapsource.position.speedValid
               width: parent.width * 0.25
           }
 
@@ -67,8 +60,8 @@ Page {
               anchors.top:  vdcoordinate.bottom
               anchors.left: parent.left
               label: qsTr("Latitude")
-              value: positionSource.position.coordinate.latitude.toFixed(6)
-              valid: positionSource.position.latitudeValid
+              value: mapsource.position.coordinate.latitude.toFixed(6)
+              valid: mapsource.position.latitudeValid
               width: parent.width/3
           }
 
@@ -77,10 +70,9 @@ Page {
               anchors.top:   vdcoordinate.bottom
               anchors.left:  vdlatitude.right
               anchors.right: vdaltitude.left
-
               label: qsTr("Longitude")
-              value: positionSource.position.coordinate.longitude.toFixed(6)
-              valid: positionSource.position.longitudeValid
+              value: mapsource.position.coordinate.longitude.toFixed(6)
+              valid: mapsource.position.longitudeValid
               width: parent.width/3
           }
 
@@ -88,16 +80,13 @@ Page {
               id:    vdaltitude
               anchors.top: vdcoordinate.bottom
               anchors.right: parent.right
-
               label: qsTr("Altitude")
-              value: positionSource.position.coordinate.altitude.toFixed(6)
-              valid: positionSource.position.altitudeValid
+              value: mapsource.position.coordinate.altitude.toFixed(6)
+              valid: mapsource.position.altitudeValid
               width: parent.width/3
           }
 
-
        }
-
 //=====================*******==========================================*******=====================
        Rectangle {
           id: mapRect
@@ -113,6 +102,10 @@ Page {
              anchors.fill: parent
              plugin: mapPlugin
 
+             gesture.enabled: true
+             gesture.activeGestures: MapGestureArea.PinchGesture | MapGestureArea.PanGesture
+             //gesture.acceptedGestures: MapGestureArea.PinchGesture | MapGestureArea.PanGesture
+
              Plugin {
                 id: mapPlugin
                 name: "webtiles"
@@ -125,15 +118,15 @@ Page {
              Binding {
                 target: map
                 property: "center"
-                value: positionSource.position.coordinate
-                when: positionSource.position.coordinate.isValid
+                value: mapsource.position.coordinate
+                when:  mapsource.position.coordinate.isValid
              }
 
-
-             MapQuickItem {
+             Footprints {
                  id: mifoot
-
-
+                 coordinate: mapsource.position.coordinate
+                 visible:    mapsource.position.coordinate.isValid
+                 diameter: Math.min(map.width, map.height) / 8
              }
 
              Component.onCompleted: {
@@ -141,16 +134,21 @@ Page {
                  center = QtPositioning.coordinate(55.751244, 37.618423)
                  map.addMapItem(mifoot)
 
+                 /*var circle = Qt.createQmlObject("import QtLocation 5.0; MapCircle{}", map);
+                 circle.center = mapsource.position.coordinate;
+                 circle.radius = 500000.0;
+                 circle.color = "red";
+                 circle.border.width = 3;
+                 circle.visible = true
+                 map.addMapItem(circle);*/
 
-
+                 console.log("map completed")
              }
 
           }
+
        }
-
-
-
-//=====================*******=====================
+//=====================*******==========================================*******=====================
        Rectangle {
           id: bottomRect
           anchors.bottom:  parent.bottom
@@ -162,7 +160,7 @@ Page {
           Slider {
              id: scaleslider
              anchors.fill: parent
-             label : qsTr("масштаб")
+             label : qsTr("scale")
 
              minimumValue: map.minimumZoomLevel
              maximumValue: map.maximumZoomLevel
@@ -172,25 +170,11 @@ Page {
           }
 
        }
-
 //=====================*******==========================================*******=====================
-  /*
-        MapGestureArea {
-           id: gesture
-           enabled: true
 
-
-
-        }
-*/
        // acceptedGestures: MapGestureArea.PinchGesture | MapGestureArea.PanGesture
      //   gesture.PinchGesture : true //| MapGestureArea.PanGesture
-
-
-
-
-
-        // ToDo: define plugin to work with OSM
+       // ToDo: define plugin to work with OSM
         // ToDo: enable gesture recognition
         // ToDo: bind zoomLevel property to slider value
 
@@ -198,15 +182,6 @@ Page {
 
         // ToDo: create MouseArea to handle clicks and holds
 
-
-
-
-    /*
-    Slider {
-    from: map.minimumZoomLevel
-    to: map.maximumZoomLevel
-    value: 11
-    }*/
     // ToDo: add a slider to control zoom level
 
     // ToDo: add a component corresponding to MapQuickCircle

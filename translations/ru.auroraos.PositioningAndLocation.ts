@@ -12,76 +12,38 @@
 <context>
     <name>MapPage</name>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="49"/>
+        <location filename="../qml/pages/MapPage.qml" line="42"/>
         <source>Coordinate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="59"/>
+        <location filename="../qml/pages/MapPage.qml" line="52"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="60"/>
+        <location filename="../qml/pages/MapPage.qml" line="53"/>
         <source>%1 meters / second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="69"/>
+        <location filename="../qml/pages/MapPage.qml" line="62"/>
         <source>Latitude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="81"/>
+        <location filename="../qml/pages/MapPage.qml" line="73"/>
         <source>Longitude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="92"/>
+        <location filename="../qml/pages/MapPage.qml" line="83"/>
         <source>Altitude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MapPage.qml" line="164"/>
-        <source>масштаб</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PositioningPage</name>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="32"/>
-        <source>Timestamp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="38"/>
-        <source>Coordinate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="44"/>
-        <source>Latitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="50"/>
-        <source>Longitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="56"/>
-        <source>Altitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="62"/>
-        <source>Speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PositioningPage.qml" line="63"/>
-        <source>%1 meters / second</source>
+        <location filename="../qml/pages/MapPage.qml" line="163"/>
+        <source>scale</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
